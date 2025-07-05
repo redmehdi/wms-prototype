@@ -1,0 +1,18 @@
+[project]
+name = "wms-prototype-backend"
+version = "0.1.0"
+dependencies = [
+    "fastapi==0.111.0",
+    "uvicorn[standard]",
+    "sqlmodel",
+    "psycopg2-binary",
+    "fastapi-users[sqlalchemy]",
+    "celery",
+    "scikit-learn",
+    "prophet",
+    "ortools",
+]
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
