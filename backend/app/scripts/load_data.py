@@ -1,4 +1,6 @@
-from sqlmodel import Session, select
+
+from sqlmodel import Session
+
 from ..core.database import init_db, engine
 from ..models.item import Item
 from ..models.order import Order
