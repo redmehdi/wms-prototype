@@ -1,15 +1,12 @@
-from fastapi import APIRouter
-from pydantic import BaseModel
-
-class Item(BaseModel):
-    id: int
-    name: str
+from fastapi import APIRouter, Depends
+from sqlmodel import Session, select
+from ..core.database import get_session
+from ..models.item import Item
 
 router = APIRouter()
 
-items_db = [Item(id=1, name="Widget"), Item(id=2, name="Gadget")]
 
 @router.get("/", response_model=list[Item])
-def list_items():
-    return items_db
+def list_items(session: Session = Depends(get_session)):
+    return session.exec(select(Item)).all()
 
