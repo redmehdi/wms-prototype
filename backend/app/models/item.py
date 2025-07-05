@@ -1,5 +1,6 @@
+from __future__ import annotations
+
 from sqlmodel import SQLModel, Field, Relationship
-from .order import Order
 
 class Item(SQLModel, table=True):
     id: int | None = Field(default=None, primary_key=True)
