@@ -1,4 +1,4 @@
-from typing import Optional, TYPE_CHECKING, List
+from typing import Optional, TYPE_CHECKING
 
 from sqlmodel import SQLModel, Field, Relationship
 
@@ -10,4 +10,4 @@ class Item(SQLModel, table=True):
     id: Optional[int] = Field(default=None, primary_key=True)
     name: str
 
-    orders: List["Order"] = Relationship(back_populates="item")
+    orders: list["Order"] = Relationship(back_populates="item")
