@@ -11,6 +11,7 @@ dependencies = [
     "scikit-learn",
     "prophet",
     "ortools",
+    "pydantic-settings",
 ]
 
 [build-system]
