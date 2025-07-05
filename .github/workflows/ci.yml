@@ -1,0 +1,25 @@
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: false
+          tags: wms-api:test
+      - run: docker compose -f docker-compose.yml up -d db
+      - run: pytest backend/tests
+
+  deploy:
+    needs: build-test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: google-github-actions/deploy-cloudrun@v1
+        with:
+          service: wms-api
+          image: gcr.io/$PROJECT_ID/wms-api:${{ github.sha }}
