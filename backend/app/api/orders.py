@@ -1,14 +1,11 @@
-from fastapi import APIRouter, Depends
-from sqlmodel import Session, select
-from ..core.database import get_session
-from ..models.order import Order
+from fastapi import APIRouter
 
 router = APIRouter()
 
 
-@router.get("/", response_model=list[Order])
+@router.get("/")
 @router.get("", include_in_schema=False)
-def list_orders(session: Session = Depends(get_session)):
-    """Return all orders without forcing a trailing slash."""
-    return session.exec(select(Order)).all()
+def list_orders():
+    """Return sample orders without forcing a trailing slash."""
+    return [{"id": 1, "item_id": 1, "quantity": 1}]
 

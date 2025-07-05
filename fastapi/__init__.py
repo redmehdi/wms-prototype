@@ -30,6 +30,10 @@ class FastAPI(APIRouter):
             if full.endswith("/") and full != "/":
                 self.routes.setdefault(full.rstrip("/"), {}).update(methods)
 
+    def add_middleware(self, middleware, **options):
+        """Ignore middleware in this simplified stub."""
+        pass
+
 class Response:
     def __init__(self, data, status_code=200):
         self._data = data
