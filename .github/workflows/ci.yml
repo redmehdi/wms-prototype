@@ -24,8 +24,15 @@ jobs:
   deploy:
     needs: build-test
     runs-on: ubuntu-latest
+    env:
+      PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
+      CLOUDSDK_CORE_PROJECT: ${{ secrets.GCP_PROJECT_ID }}
     steps:
+      - uses: google-github-actions/auth@v1
+        with:
+          credentials_json: ${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}
       - uses: google-github-actions/deploy-cloudrun@v1
         with:
           service: wms-api
           image: gcr.io/$PROJECT_ID/wms-api:${{ github.sha }}
+          region: us-central1
