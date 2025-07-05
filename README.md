@@ -32,8 +32,13 @@ This repository contains a minimal warehouse management system prototype using t
    make load
    ```
 6. Visit `http://localhost:3000` for the UI and `http://localhost:8000/docs` for the API docs.
+7. When you're finished, stop all services:
+   ```bash
+   make down
+   ```
 
 To run backend tests locally:
 ```bash
+pip install -e ./backend pytest
 pytest backend/tests
 ```

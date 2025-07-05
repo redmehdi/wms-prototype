@@ -13,9 +13,12 @@ jobs:
           file: ./backend/Dockerfile
           push: false
           tags: wms-api:test
-      - run: docker compose -f docker-compose.yml up -d db
+      - run: make up
       - run: pip install ./backend
+      - run: pip install pytest
       - run: pytest backend/tests
+      - run: make down
+        if: always()
 
   deploy:
     needs: build-test
