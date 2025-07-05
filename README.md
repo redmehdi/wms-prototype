@@ -9,7 +9,7 @@ This repository contains a minimal warehouse management system prototype using t
 - **scikit-learn**, **Facebook Prophet**, **OR-Tools** for forecasting and optimisation
 - **React 18 + TypeScript** (Vite) for the front end
 - **JWT authentication** via FastAPI Users
-- Docker, docker-compose and GitHub Actions CI (workflow not included)
+- Docker, docker-compose and GitHub Actions CI for deployment to Cloud Run
 - Custom Nginx config to support React Router
 
 ## Running Locally
@@ -43,3 +43,17 @@ To run backend tests locally:
 pip install -e ./backend pytest
 pytest backend/tests
 ```
+
+## GitHub Actions Deployment
+
+The repository includes a workflow that builds and tests the backend, then
+deploys the container image to Cloud Run. Configure the following GitHub
+secrets so the deployment step can authenticate and target the correct
+project:
+
+- `GCP_PROJECT_ID` – your Google Cloud project ID.
+- `GCP_SERVICE_ACCOUNT_KEY` – a service account key JSON with permissions to
+  deploy to Cloud Run.
+
+The workflow uses these secrets to authenticate and sets `PROJECT_ID` when
+running `gcloud`. Ensure both secrets are present for successful deployments.
