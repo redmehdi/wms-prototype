@@ -1,5 +1,5 @@
 
-from sqlmodel import Session
+from sqlmodel import Session, select
 
 from ..core.database import init_db, engine
 from ..models.item import Item
