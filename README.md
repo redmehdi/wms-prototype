@@ -28,8 +28,17 @@ This repository contains a minimal warehouse management system prototype using t
    make up
    ```
 5. Visit `http://localhost:3000` for the UI and `http://localhost:8000/docs` for the API docs.
+6. When finished, stop the containers:
+   ```bash
+   make down
+   ```
 
-To run backend tests locally:
+To run backend tests locally, install the Python dependencies first:
 ```bash
+pip install -e ./backend
 pytest backend/tests
+```
+Alternatively run them inside the Docker container:
+```bash
+docker-compose run --rm backend pytest
 ```
