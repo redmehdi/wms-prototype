@@ -10,6 +10,7 @@ This repository contains a minimal warehouse management system prototype using t
 - **React 18 + TypeScript** (Vite) for the front end
 - **JWT authentication** via FastAPI Users
 - Docker, docker-compose and GitHub Actions CI (workflow not included)
+- Custom Nginx config to support React Router
 
 ## Running Locally
 
