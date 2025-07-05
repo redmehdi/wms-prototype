@@ -11,11 +11,25 @@ This repository contains a minimal warehouse management system prototype using t
 - **JWT authentication** via FastAPI Users
 - Docker, docker-compose and GitHub Actions CI (workflow not included)
 
-To run the stack locally:
+## Running Locally
 
+1. Ensure Docker and Docker Compose are installed.
+2. Clone the repository and change into the project directory:
+   ```bash
+   git clone <repository-url>
+   cd wms-prototype
+   ```
+3. (Optional) Copy the example environment file and adjust values if necessary:
+   ```bash
+   cp backend/.env.example backend/.env
+   ```
+4. Start all services with Docker Compose:
+   ```bash
+   make up
+   ```
+5. Visit `http://localhost:3000` for the UI and `http://localhost:8000/docs` for the API docs.
+
+To run backend tests locally:
 ```bash
-make up
+pytest backend/tests
 ```
-
-Visit `http://localhost:3000` for the UI and `http://localhost:8000/docs` for the API docs.
-
