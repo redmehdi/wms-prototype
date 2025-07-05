@@ -27,7 +27,11 @@ This repository contains a minimal warehouse management system prototype using t
    ```bash
    make up
    ```
-5. Visit `http://localhost:3000` for the UI and `http://localhost:8000/docs` for the API docs.
+5. Load some sample inventory and order data:
+   ```bash
+   make load
+   ```
+6. Visit `http://localhost:3000` for the UI and `http://localhost:8000/docs` for the API docs.
 
 To run backend tests locally:
 ```bash
