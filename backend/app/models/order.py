@@ -10,4 +10,4 @@ class Order(SQLModel, table=True):
     id: Optional[int] = Field(default=None, primary_key=True)
     item_id: Optional[int] = Field(default=None, foreign_key="item.id")
     quantity: int
-    item: Mapped[Optional["Item"]] = relationship(back_populates="orders")
+    item: Mapped["Item | None"] = relationship(back_populates="orders")
