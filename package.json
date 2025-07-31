@@ -1,0 +1,22 @@
+{
+  "name": "wms-prototype",
+  "version": "1.0.0",
+  "description": "This repository contains a minimal warehouse management system prototype using the following stack:",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "hardhat test",
+    "compile": "hardhat compile"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "hardhat": "^2.20.0",
+    "@nomicfoundation/hardhat-toolbox": "^3.0.0",
+    "@openzeppelin/contracts": "^5.0.0"
+  }
+}
