@@ -57,3 +57,25 @@ project:
 
 The workflow uses these secrets to authenticate and sets `PROJECT_ID` when
 running `gcloud`. Ensure both secrets are present for successful deployments.
+
+## Smart Contracts
+
+This repository includes a simple Hardhat project used to compile and test Solidity contracts. The main contract, `NewsPublisher.sol`, allows the owner to publish articles and lets users vote on them.
+
+### Usage
+
+1. Install Node.js (version 18+ recommended).
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Compile the contracts:
+   ```bash
+   npm run compile
+   ```
+4. Run the tests:
+   ```bash
+   npm test
+   ```
+
+> **Note**: Installing dependencies requires internet access to download packages such as Hardhat and OpenZeppelin.
